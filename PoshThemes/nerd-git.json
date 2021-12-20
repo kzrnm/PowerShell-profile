@@ -1,0 +1,73 @@
+{
+    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+    "$comment": "by agnosterplus",
+    "blocks": [
+        {
+            "type": "prompt",
+            "alignment": "right",
+            "vertical_offset": -1,
+            "segments": [
+                {
+                  "type": "python",
+                  "style": "diamond",
+                  "leading_diamond": " \uE0B6",
+                  "trailing_diamond": "\uE0B4",
+                  "foreground": "#FFE873",
+                  "background": "#306998",
+                  "properties": {
+                    "prefix": "\uE235 ",
+                    "postfix": ""
+                  }
+                },
+                {
+                    "type": "time",
+                    "style": "plain",
+                    "foreground": "#007ACC",
+                    "properties": {
+                        "time_format": "15:04:05"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "prompt",
+            "alignment": "left",
+            "newline": true,
+            "segments": [
+                {
+                    "type": "path",
+                    "style": "powerline",
+                    "powerline_symbol": "\uE0B0",
+                    "foreground": "#100e23",
+                    "background": "#91ddff",
+                    "properties": {
+                        "home_icon": "\uF7DB",
+                        "folder_icon": "\uF115",
+                        "folder_separator_icon": "/",
+                        "style": "agnoster"
+                    }
+                },
+                {
+                    "type": "git",
+                    "style": "powerline",
+                    "powerline_symbol": "\uE0B0",
+                    "foreground": "#193549",
+                    "background": "#ff9248",
+                    "background_templates": [
+                      "{{ if or (.Working.Changed) (.Staging.Changed) }}#ff9248{{ end }}",
+                      "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#FFCC80{{ end }}",
+                      "{{ if gt .Ahead 0 }}#B388FF{{ end }}",
+                      "{{ if gt .Behind 0 }}#B388FB{{ end }}"
+                    ],
+                    "properties": {
+                      "fetch_status": true,
+                      "fetch_stash_count": true,
+                      "fetch_upstream_icon": true,
+                      "template": "{{ .UpstreamIcon }}{{ .HEAD }}{{ .BranchStatus }}{{ if .Working.Changed }} \uF044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uF046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \uF692 {{ .StashCount }}{{ end }}"
+                    }
+                  }
+            ]
+        }
+    ],
+    "final_space": true
+}
