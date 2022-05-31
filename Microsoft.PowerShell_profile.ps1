@@ -6,6 +6,7 @@ $env:LANG = "ja_JP.UTF-8"
 
 Set-Alias sleep Start-SleepKurukuru -Force
 Set-Alias ll Get-ChildItem
+Set-Alias clip Set-Clipboard
 function which { (Get-Command $args).Definition }
 function bd { Set-Location .. }
 
@@ -18,7 +19,7 @@ if ($env:NO_NERD_FONT) {
 }
 elseif ($env:TERMINAL_EMULATOR -eq "JetBrains-JediTerm") {
     # Set-PoshPrompt powerlevel10k_lean
-    Remove-Module oh-my-posh
+    # Remove-Module oh-my-posh
 }
 else {
     Set-PoshPrompt -Theme $PSScriptRoot\PoshThemes\nerd-git.json
