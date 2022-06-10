@@ -13,10 +13,10 @@ $env:POSH_GIT_ENABLED = $True
 
 if ($env:NO_NERD_FONT) {
     Set-PoshPrompt hotstick.minimal
-    Remove-Module oh-my-posh
+#    Remove-Module oh-my-posh
 }
 elseif ($env:TERMINAL_EMULATOR -eq "JetBrains-JediTerm") {
-    #    $GitPromptSettings.EnableFileStatus = $false
+    Import-Module posh-git
     $GitPromptSettings.BranchGoneStatusSymbol.Text = '*'
     $GitPromptSettings.BranchIdenticalStatusSymbol.Text = '_'
     $GitPromptSettings.BranchAheadStatusSymbol.Text = 'L'
