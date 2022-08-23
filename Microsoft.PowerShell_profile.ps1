@@ -3,6 +3,7 @@ $env:LANG = "ja_JP.UTF-8"
 . "$PSScriptRoot/Scripts/completion.ps1"
 . "$PSScriptRoot/Scripts/functions.ps1"
 
+[System.Console]::OutputEncoding = [System.Text.UTF8Encoding]::new($false)
 Set-Alias sleep Start-SleepKurukuru -Force
 Set-Alias ll Get-ChildItem
 Set-Alias clip Set-Clipboard
