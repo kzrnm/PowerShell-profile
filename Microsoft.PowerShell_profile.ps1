@@ -10,7 +10,6 @@ Set-Alias clip Set-Clipboard
 function which { (Get-Command $args).Definition }
 function bd { Set-Location .. }
 
-$env:POSH_GIT_ENABLED = $True
 
 if ($env:NO_NERD_FONT) {
     Set-PoshPrompt hotstick.minimal
@@ -27,3 +26,4 @@ elseif ($env:TERMINAL_EMULATOR -eq "JetBrains-JediTerm") {
 else {
     oh-my-posh init pwsh --config $PSScriptRoot\PoshThemes\nerd-git.json | Invoke-Expression
 }
+$env:POSH_GIT_ENABLED = $True
