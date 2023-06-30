@@ -14,6 +14,8 @@ Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
         [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
     }
 }
-. C:\Software\ripgrep\_rg.ps1
 
 Import-Module npm-completion
+if (Get-Command gh -ErrorAction SilentlyContinue) {
+  Invoke-Expression -Command $(gh completion -s powershell | Out-String)
+}
