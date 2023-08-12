@@ -23,12 +23,10 @@
           "type": "time"
         }
       ],
-      "type": "prompt",
-      "vertical_offset": -1
+      "type": "rprompt"
     },
     {
       "alignment": "left",
-      "newline": true,
       "segments": [
         {
           "background": "#91ddff",
