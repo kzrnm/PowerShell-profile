@@ -1,4 +1,3 @@
-Import-Module kurukuru-pwsh
 function Start-SleepKurukuru {
     [CmdletBinding(DefaultParameterSetName = "Second")]
     param(
@@ -27,15 +26,16 @@ function Start-SleepKurukuru {
         Default { throw "Invalid ParameterSetName" }
     }
 
-    $untilText = "Waiting until $($EndTime.ToString())..."
-    Start-Kurukuru -Pattern Dots12 -Text $untilText -SucceedText "Finish" {
-        param([Kurukuru.Spinner]$spinner)
-        while ($now -lt $EndTime) {
-            if ($now -gt $EndTime) { $now = $EndTime }
-            $leftSecond = [int]($EndTime - $now).TotalSeconds
-            $spinner.Text = "$untilText $leftSecond sec left"
-            Start-Sleep -Seconds 1
-            $now = [datetime]::Now
-        }
-    }
+    while ($now -lt $EndTime) {
+        if ($now -gt $EndTime) { $now = $EndTime }
+        $leftSecond = [int]($EndTime - $now).TotalSeconds
+        $elapsedSecond = [int]($now - $StartTime).TotalSeconds
+        Write-Progress -Activity "Waiting until $($EndTime.ToString()) ($Seconds seconds)..."`
+            -PercentComplete (100 * ($now - $StartTime).TotalSeconds / ($EndTime - $StartTime).TotalSeconds)`
+            -CurrentOperation "$leftSecond sec left ($elapsedSecond sec elapsed)"`
+            -Status "Please wait"
+        Start-Sleep -Seconds 1
+        $now = [datetime]::Now
+    } 
+    Write-Progress -Completed $true -Status "Please wait"
 }
