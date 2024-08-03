@@ -21,5 +21,6 @@ else {
     oh-my-posh init pwsh --config $PSScriptRoot\PoshThemes\nerd-git.json | Invoke-Expression
     $env:VIRTUAL_ENV_DISABLE_PROMPT = "true"
 }
+Import-Module posh-git
 $env:POSH_GIT_ENABLED = $True
 
