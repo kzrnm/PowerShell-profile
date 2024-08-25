@@ -1,5 +1,7 @@
 $env:LANG = "ja_JP.UTF-8"
-. "$PSScriptRoot/Scripts/Local/main.ps1"
+if (Test-Path "$PSScriptRoot/Scripts/Local/main.ps1" -PathType Leaf) {
+    . "$PSScriptRoot/Scripts/Local/main.ps1"
+}
 . "$PSScriptRoot/Scripts/completion.ps1"
 . "$PSScriptRoot/Scripts/functions.ps1"
 
