@@ -15,6 +15,7 @@ Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
     }
 }
 
+Import-Module git-completion
 Import-Module npm-completion
 if (Get-Command gh -ErrorAction SilentlyContinue) {
     Invoke-Expression -Command $(gh completion -s powershell | Out-String)
