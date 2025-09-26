@@ -40,7 +40,7 @@
             "folder_separator_icon": "/",
             "home_icon": "\ueb06",
             "mapped_locations": {
-              "Z:/workspace": "\uf401"
+              "{{.Env.WorkspaceDir}}": "\uf401"
             },
             "style": "mixed"
           },
