@@ -14,13 +14,13 @@ function bd { Set-Location .. }
 
 
 if ($env:NO_NERD_FONT) {
-    oh-my-posh init pwsh --config $PSScriptRoot\PoshThemes\minimal.omp.json | Invoke-Expression
+    oh-my-posh init pwsh --eval --config $PSScriptRoot\PoshThemes\minimal.omp.json | Invoke-Expression
 }
 #elseif ($env:TERMINAL_EMULATOR -eq "JetBrains-JediTerm") {
-#    oh-my-posh init pwsh --config $PSScriptRoot\PoshThemes\minimal.omp.json | Invoke-Expression
+#    oh-my-posh init pwsh --eval --config $PSScriptRoot\PoshThemes\minimal.omp.json | Invoke-Expression
 #}
 else {
-    oh-my-posh init pwsh --config $PSScriptRoot\PoshThemes\nerd-git.json | Invoke-Expression
+    oh-my-posh init pwsh --eval --config $PSScriptRoot\PoshThemes\nerd-git.json | Invoke-Expression
     $env:VIRTUAL_ENV_DISABLE_PROMPT = "true"
 }
 
