@@ -24,6 +24,9 @@
           },
           "template": " {{ .CurrentDate | date .Format }} ",
           "foreground": "#007ACC",
+          "foreground_templates": [
+            "{{ if eq .Shell \"fish\" }}#7ACC00{{ end }}"
+          ],
           "type": "time",
           "style": "plain"
         }
